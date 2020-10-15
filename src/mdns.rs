@@ -25,7 +25,7 @@ pub fn mdns_interface(
     let socket = create_socket()?;
     let socket = UdpSocket::from_std(socket)?;
 
-    socket.set_multicast_loop_v4(false)?;
+    socket.set_multicast_loop_v4(true)?;
     socket.join_multicast_v4(MULTICAST_ADDR, interface_addr)?;
 
     let (recv, send) = socket.split();
